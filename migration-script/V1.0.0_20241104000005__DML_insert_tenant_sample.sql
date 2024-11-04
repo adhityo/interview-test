@@ -1,0 +1,3 @@
+INSERT INTO `interview-auth`.tenant (unique_code,tenant_name,tenant_target_route,current_token,current_token_expire_time,status,created_time,created_by,modified_time,modified_by,deleted_time,deleted_by,deleted_status) VALUES
+	 ('cb6801ed-89ac-4f6d-a7e0-91e8905d64cd','Toko A','/tenant-a/','tenant-Za?/oNXqdoqKk2L9Zt=Zf8qh-q6ikgQQU!8v42UfJ0vsevetGTKGHHB9rFixe/KnyOjtzJLhBBFEpICZKkUjLxv5mpAI2rUzYNr6wGsy/wEmPWfGkotaKDTYZ','2024-11-04 07:23:50','active',NULL,NULL,NULL,NULL,NULL,NULL,0),
+	 ('777c80b2-c75f-45a8-b3b2-636047b0c04a','Toko B','/tenant-b/','tenant-94?jHF07PPUlp-jHAs2lYX7=XSV!sBcDUlHlpK00Dg2otgdxEm7rn==4KC!FuQ1MlUDm-JN3DC/s1Rm4-bQZ?u5CePk?INY1eBlMMVVdQTGa-?UnpxD8zcDhP','2024-11-04 07:23:50','active',NULL,NULL,NULL,NULL,NULL,NULL,0);
