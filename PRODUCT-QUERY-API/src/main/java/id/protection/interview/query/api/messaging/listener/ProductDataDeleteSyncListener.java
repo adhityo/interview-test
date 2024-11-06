@@ -12,18 +12,20 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
-public class ProductDataSyncListener {
+public class ProductDataDeleteSyncListener {
+
+	
 	@Autowired
 	private ProductQueryService productQueryService;
 	
 	@JmsListener(destination = "${eppSessionInvalidationQueue}")
-	public void updateProduct(String message) {
+	public void deleteProduct(String message) {
 		
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			ProductDto dto = mapper.readValue(message, ProductDto.class);
 			
-			productQueryService.createProduct(dto);
+			productQueryService.deleteProduct(dto);
 		}
 		catch (Exception e) {
 			log.error("Exception {}", e.getMessage());

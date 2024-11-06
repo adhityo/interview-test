@@ -9,4 +9,8 @@ public class ActionUser {
 
 	private String username;
 	private String requestTransactionId;
+	
+	private boolean isAuthorized;
+	private boolean isLoggedIn;
+	
 }

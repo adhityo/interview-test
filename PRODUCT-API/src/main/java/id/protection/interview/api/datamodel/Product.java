@@ -2,6 +2,7 @@
 package id.protection.interview.api.datamodel;
 
 import id.protection.interview.api.dto.ProductDto;
+import id.protection.interview.api.util.Converter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -72,6 +73,31 @@ public class Product implements java.io.Serializable {
 	@Column(name = "deleted_status")
 	private Integer deletedStatus;
 
+	public void loadDto(ProductDto dto) {
+		if (dto != null) {
+
+			id = Long.valueOf(dto.getId());
+
+			uniqueCode = dto.getUniqueCode();
+
+			productName = dto.getProductName();
+
+			productSku = dto.getProductSku();
+
+			description = dto.getDescription();
+
+			price = Converter.parseToLong(dto.getPrice());
+
+			inventoryTotal = dto.getInventoryTotal();
+
+			bookedInventoryTotal = dto.getBookedInventoryTotal();
+
+			returnedInventoryTotal = dto.getReturnedInventoryTotal();
+
+			status = dto.getStatus();
+
+		}
+	}
 
 	public ProductDto convertDto() {
 		ProductDto result = new ProductDto();
