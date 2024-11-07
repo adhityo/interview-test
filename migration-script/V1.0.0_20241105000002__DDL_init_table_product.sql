@@ -1,5 +1,4 @@
 -- interview.product definition
-
 CREATE TABLE `interview`.`product` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `unique_code` varchar(50) DEFAULT NULL,
@@ -11,12 +10,16 @@ CREATE TABLE `interview`.`product` (
   `booked_inventory_total` double DEFAULT NULL,
   `returned_inventory_total` double DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
-  `created_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_time` bigint(20) NOT NULL,
   `created_by` varchar(50) DEFAULT NULL,
-  `modified_time` timestamp NULL DEFAULT NULL,
+  `modified_time` bigint(20) DEFAULT NULL,
   `modified_by` varchar(50) DEFAULT NULL,
-  `deleted_time` timestamp NULL DEFAULT NULL,
+  `deleted_time` bigint(20) DEFAULT NULL,
   `deleted_by` varchar(50) DEFAULT NULL,
   `deleted_status` tinyint(2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `category_id` varchar(100) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `category_id` (`category_id`),
+  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

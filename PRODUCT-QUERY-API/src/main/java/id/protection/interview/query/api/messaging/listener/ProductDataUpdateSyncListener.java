@@ -12,7 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
-public class ProductDataSyncListener {
+public class ProductDataUpdateSyncListener {
+	
 	@Autowired
 	private ProductQueryService productQueryService;
 	
@@ -23,7 +24,7 @@ public class ProductDataSyncListener {
 			ObjectMapper mapper = new ObjectMapper();
 			ProductDto dto = mapper.readValue(message, ProductDto.class);
 			
-			productQueryService.createProduct(dto);
+			productQueryService.updateProduct(dto);
 		}
 		catch (Exception e) {
 			log.error("Exception {}", e.getMessage());
