@@ -23,4 +23,11 @@ public class Converter {
 		
 		return result;
 	}
+	public static Double parseToDouble (String numeric) {
+		Double result = null;
+		
+		result = (numeric == null || numeric.equalsIgnoreCase("")) ? null : Double.valueOf(numeric);
+		
+		return result;
+	}
 }

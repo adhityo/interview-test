@@ -53,25 +53,28 @@ public class Product implements java.io.Serializable {
 	private String status;
 
 	@Column(name = "created_time")
-	private java.sql.Timestamp createdTime;
+	private Long createdTime;
 
 	@Column(name = "created_by")
 	private String createdBy;
 
 	@Column(name = "modified_time")
-	private java.sql.Timestamp modifiedTime;
+	private Long modifiedTime;
 
 	@Column(name = "modified_by")
 	private String modifiedBy;
 
 	@Column(name = "deleted_time")
-	private java.sql.Timestamp deletedTime;
+	private Long deletedTime;
 
 	@Column(name = "deleted_by")
 	private String deletedBy;
 
 	@Column(name = "deleted_status")
 	private Integer deletedStatus;
+	
+	@Column(name="version")
+	private Integer version;
 
 	public void loadDto(ProductDto dto) {
 		if (dto != null) {
@@ -126,21 +129,15 @@ public class Product implements java.io.Serializable {
 
 		result.setStatus(status);
 
-		if (createdTime != null) {
-			result.setCreatedTime(createdTime.toString());
-		}
+		result.setCreatedTime(createdTime);
 		// converted
 		result.setCreatedBy(createdBy);
 
-		if (modifiedTime != null) {
-			result.setModifiedTime(modifiedTime.toString());
-		}
+		result.setModifiedTime(modifiedTime);
 		// converted
 		result.setModifiedBy(modifiedBy);
 
-		if (deletedTime != null) {
-			result.setDeletedTime(deletedTime.toString());
-		}
+		result.setDeletedTime(deletedTime);
 		// converted
 		result.setDeletedBy(deletedBy);
 

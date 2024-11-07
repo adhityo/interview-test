@@ -50,7 +50,7 @@ public class ProductDto implements java.io.Serializable{
 	@JsonProperty("price")
 	private Double price;
 			
-	@JsonProperty("inventory_total")
+	@JsonProperty("stock")
 	private Double inventoryTotal;
 			
 	@JsonProperty("booked_inventory_total")
@@ -62,28 +62,29 @@ public class ProductDto implements java.io.Serializable{
 	@JsonProperty("status")
 	private String status;
 			
-	@JsonProperty("created_time")
-	private String createdTime;
+	@JsonProperty("createdAt")
+	private Long createdTime;
 			
 	@JsonProperty("created_by")
 	private String createdBy;
 			
-	@JsonProperty("modified_time")
-	private String modifiedTime;
+	@JsonProperty("modifiedAt")
+	private Long modifiedTime;
 			
 	@JsonProperty("modified_by")
 	private String modifiedBy;
 			
-	@JsonProperty("deleted_time")
-	private String deletedTime;
+	@JsonProperty("deletedAt")
+	private Long deletedTime;
 			
 	@JsonProperty("deleted_by")
 	private String deletedBy;
 			
 	@JsonProperty("deleted_status")
 	private String deletedStatus;
-		
 	
+	@JsonProperty("category")
+	private CategoryDto category;
 	
  	@JsonProperty("response_code")
 	private String responseCode;
@@ -99,6 +100,9 @@ public class ProductDto implements java.io.Serializable{
 
 	@JsonProperty("decision")
 	private String decision;
+	
+	@JsonProperty("version")
+	private Integer version;
 	
 	
 	public ProductDto (){}

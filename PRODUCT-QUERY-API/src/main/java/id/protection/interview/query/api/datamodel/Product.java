@@ -4,6 +4,7 @@ import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+import id.protection.interview.api.dto.CategoryDto;
 import id.protection.interview.api.dto.ProductDto;
 import id.protection.interview.api.util.Converter;
 import lombok.Getter;
@@ -43,28 +44,36 @@ public class Product {
 	private String status;
 
 	@Column
-	private java.sql.Timestamp createdTime;
+	private Long createdTime;
 
 	@Column
 	private String createdBy;
 
 	@Column
-	private java.sql.Timestamp modifiedTime;
+	private Long modifiedTime;
 
 	@Column
 	private String modifiedBy;
 
 	@Column
-	private java.sql.Timestamp deletedTime;
+	private Long deletedTime;
 
 	@Column
 	private String deletedBy;
 
 	@Column
 	private Integer deletedStatus;
+	
+	@Column
+	private Integer version;
 
+	@Column
+	private String categoryId;
+	
+	@Column
+	private String categoryName;
 
-	public Product(ProductDto dto) {
+	public void load(ProductDto dto) {
 		this.uniqueCode = dto.getUniqueCode();
 		this.productName = dto.getProductName();
 		this.productSku = dto.getProductSku();
@@ -75,6 +84,10 @@ public class Product {
 		this.returnedInventoryTotal = dto.getReturnedInventoryTotal();
 		this.status = dto.getStatus();
 		this.deletedStatus = Integer.valueOf(dto.getDeletedStatus());
+		this.version = dto.getVersion();
+		
+		this.categoryId = dto.getCategory() == null ? "": dto.getCategory().getId();
+		this.categoryName = dto.getCategory() == null ? "": dto.getCategory().getName();
 	}
 	public ProductDto convertDto() {
 		ProductDto result = new ProductDto();
@@ -90,6 +103,13 @@ public class Product {
 		result.setDescription(description);
 		result.setCreatedBy(createdBy);
 		result.setDeletedStatus(Converter.convertToString(deletedStatus));
+		result.setVersion(version);		
+		
+		CategoryDto category = new CategoryDto();
+		category.setId(categoryId);
+		category.setName(categoryName);
+		
+		result.setCategory(category);
 		
 		return result;
 	}
