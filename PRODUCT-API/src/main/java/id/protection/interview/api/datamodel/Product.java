@@ -1,6 +1,9 @@
 
 package id.protection.interview.api.datamodel;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.UniqueElements;
+
 import id.protection.interview.api.dto.ProductDto;
 import id.protection.interview.api.util.Converter;
 import jakarta.persistence.Column;
@@ -9,8 +12,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+
+
 
 @Entity
 @Table(name = "product")
@@ -29,18 +40,24 @@ public class Product implements java.io.Serializable {
 	private String uniqueCode;
 
 	@Column(name = "product_name")
+	@Size(max = 255, message = "Name Length must not more than 255 characters")
+	@NotEmpty(message = "Name is Empty")
 	private String productName;
 
-	@Column(name = "product_sku")
+	@NotEmpty(message = "SKU is Empty")	
+	@Column(name = "product_sku", unique = true)
 	private String productSku;
 
 	@Column(name = "description")
 	private String description;
 
 	@Column(name = "price")
+	@NotEmpty(message = "Price is empty")
+	@Positive(message = "Price Must Not Negative")
 	private Long price;
 
 	@Column(name = "inventory_total")
+	@Positive(message = "Stock Must Not Negative")
 	private Double inventoryTotal;
 
 	@Column(name = "booked_inventory_total")
