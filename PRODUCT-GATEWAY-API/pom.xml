@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.5</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>id.protection.interview.query</groupId>
-	<artifactId>SPRING-BOOT-TEST-QUERY-API</artifactId>
+	<groupId>id.protection.interview.gateway.api</groupId>
+	<artifactId>SPRING-BOOT-TEST-GATEWAY-API</artifactId>
 	<version>0.0.1</version>
-	<name>SPRING-BOOT-TEST-QUERY-API</name>
+	<name>SPRING-BOOT-TEST-GATEWAY-API</name>
 	<description>SPRING-BOOT-TEST-QUERY-API </description>
-	<url />
+	<url/>
 	<licenses>
-		<license />
+		<license/>
 	</licenses>
 	<developers>
-		<developer />
+		<developer/>
 	</developers>
 	<scm>
-		<connection />
-		<developerConnection />
-		<tag />
-		<url />
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
 	</scm>
 	<properties>
 		<java.version>17</java.version>
@@ -38,11 +37,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-cassandra</artifactId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
+			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,19 +59,14 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>PRODUCT-DTO</groupId>
-			<artifactId>PRODUCT-DTO</artifactId>
-			<version>1.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>PRODUCT-HELPER</groupId>
-			<artifactId>PRODUCT-HELPER</artifactId>
-			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -83,16 +77,6 @@
 			<groupId>io.projectreactor</groupId>
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.datastax.cassandra</groupId>
-			<artifactId>cassandra-driver-core</artifactId>
-			<version>2.1.9</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
@@ -108,7 +92,7 @@
 	</dependencyManagement>
 
 	<build>
-		<finalName>product-query-api-backend</finalName>
+	<finalName>product-gateway-api-backend</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -124,6 +108,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
