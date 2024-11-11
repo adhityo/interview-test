@@ -1,5 +1,3 @@
-
-
 package id.protection.interview.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -12,7 +10,7 @@ import lombok.Setter;
 @JsonInclude(value=Include.NON_NULL)
 @Setter
 @Getter
-public class ProductDto implements java.io.Serializable{
+public class TenantDto implements java.io.Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	public static final String STATUS_OPEN = "open";
@@ -21,14 +19,14 @@ public class ProductDto implements java.io.Serializable{
 	public static final String STATUS_REJECTED = "rejected";
 
 	
-	public static final String DELETE_AUTH = "DELETEPRODUCT";
-	public static final String CREATE_AUTH = "CREATEPRODUCT";
-	public static final String DETAIL_AUTH = "DETAILPRODUCT";
-	public static final String SEARCH_AUTH = "SEARCHPRODUCT";
-	public static final String UPDATE_AUTH = "UPDATEPRODUCT";
-	public static final String REJECT_AUTH = "REJECTPRODUCT";
-	public static final String APPROVE_AUTH = "APPROVEPRODUCT";
-	public static final String ACK_AUTH = "ACKNOWLEDGEPRODUCT";
+	public static final String DELETE_AUTH = "DELETETENANT";
+	public static final String CREATE_AUTH = "CREATETENANT";
+	public static final String DETAIL_AUTH = "DETAILTENANT";
+	public static final String SEARCH_AUTH = "SEARCHTENANT";
+	public static final String UPDATE_AUTH = "UPDATETENANT";
+	public static final String REJECT_AUTH = "REJECTTENANT";
+	public static final String APPROVE_AUTH = "APPROVETENANT";
+	public static final String ACK_AUTH = "ACKNOWLEDGETENANT";
 
 	//Fields
 		
@@ -38,44 +36,35 @@ public class ProductDto implements java.io.Serializable{
 	@JsonProperty("unique_code")
 	private String uniqueCode;
 			
-	@JsonProperty("product_name")
-	private String productName;
+	@JsonProperty("tenant_name")
+	private String tenantName;
 			
-	@JsonProperty("product_sku")
-	private String productSku;
+	@JsonProperty("tenant_target_route")
+	private String tenantTargetRoute;
 			
-	@JsonProperty("description")
-	private String description;
+	@JsonProperty("current_token")
+	private String currentToken;
 			
-	@JsonProperty("price")
-	private Double price;
-			
-	@JsonProperty("stock")
-	private Double inventoryTotal;
-			
-	@JsonProperty("booked_inventory_total")
-	private Double bookedInventoryTotal;
-			
-	@JsonProperty("returned_inventory_total")
-	private Double returnedInventoryTotal;
+	@JsonProperty("current_token_expire_time")
+	private String currentTokenExpireTime;
 			
 	@JsonProperty("status")
 	private String status;
 			
-	@JsonProperty("createdAt")
-	private Long createdTime;
+	@JsonProperty("created_time")
+	private String createdTime;
 			
 	@JsonProperty("created_by")
 	private String createdBy;
 			
-	@JsonProperty("modifiedAt")
-	private Long modifiedTime;
+	@JsonProperty("modified_time")
+	private String modifiedTime;
 			
 	@JsonProperty("modified_by")
 	private String modifiedBy;
 			
-	@JsonProperty("deletedAt")
-	private Long deletedTime;
+	@JsonProperty("deleted_time")
+	private String deletedTime;
 			
 	@JsonProperty("deleted_by")
 	private String deletedBy;
@@ -83,8 +72,7 @@ public class ProductDto implements java.io.Serializable{
 	@JsonProperty("deleted_status")
 	private String deletedStatus;
 		
-	@JsonProperty("category")
-	private CategoryDto category;
+	
 	
  	@JsonProperty("response_code")
 	private String responseCode;
@@ -101,12 +89,9 @@ public class ProductDto implements java.io.Serializable{
 	@JsonProperty("decision")
 	private String decision;
 	
-	@JsonProperty("version")
-	private Integer version;
+	
+	public TenantDto (){}
 	
 	
-	public ProductDto (){}
-
-
 	
 }

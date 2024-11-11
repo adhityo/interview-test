@@ -1,9 +1,6 @@
 
 package id.protection.interview.api.datamodel;
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.UniqueElements;
-
 import id.protection.interview.api.dto.ProductDto;
 import id.protection.interview.api.util.Converter;
 import jakarta.persistence.Column;
@@ -12,9 +9,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
@@ -145,12 +139,14 @@ public class Product implements java.io.Serializable {
 		result.setReturnedInventoryTotal(returnedInventoryTotal);
 
 		result.setStatus(status);
-
+		
 		result.setCreatedTime(createdTime);
+		
 		// converted
 		result.setCreatedBy(createdBy);
 
 		result.setModifiedTime(modifiedTime);
+	
 		// converted
 		result.setModifiedBy(modifiedBy);
 
