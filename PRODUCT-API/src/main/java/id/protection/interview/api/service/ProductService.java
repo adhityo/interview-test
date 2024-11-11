@@ -62,7 +62,7 @@ public class ProductService
 		UUID transactionId = UUID.randomUUID();
 		ObjectMapper objectMapper = new ObjectMapper();
 
-		product.setCreatedTime(new java.sql.Timestamp(System.currentTimeMillis()));
+		product.setCreatedTime(System.currentTimeMillis());
 		product.setDeletedStatus(0);
 		if (user != null) {
 			product.setCreatedBy(user.getUsername());
@@ -106,7 +106,7 @@ public class ProductService
 		UUID transactionId = UUID.randomUUID();
 		ObjectMapper objectMapper = new ObjectMapper();
 
-		product.setModifiedTime(new java.sql.Timestamp(System.currentTimeMillis()));
+		product.setModifiedTime(System.currentTimeMillis());
 
 		if (user != null) {
 			product.setModifiedBy(user.getUsername());
@@ -196,7 +196,7 @@ public class ProductService
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		Product product = get(pkey);
-		product.setDeletedTime(new java.sql.Timestamp(System.currentTimeMillis()));
+		product.setDeletedTime(System.currentTimeMillis());
 		product.setDeletedStatus(1);
 
 		if (user != null) {
